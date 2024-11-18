@@ -1,0 +1,58 @@
+<head>
+  <h2 align="center">Sign in to</h2>
+  <h1 align="center">WUTHERING WAVES</h1>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+    <form action="" method="GET" id="myForm" align="center">
+  <label for="option1G1">Email Adress:</label>
+  <input id="option1G1" type="text" name="First">
+  <br>
+  <label for="option2G1">Password:</label>
+  <input id="option2G1" type="text" name="Last">
+  <br>
+  <input type="submit" value="submit">
+  <input type="reset" value="Reset">
+</form>
+
+<div id="selected-options"></div>
+
+<script>
+  const form = document.getElementById('myForm');
+  const selectedOptionsDiv = document.getElementById('selected-options');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const selectedOptions = [];
+    const radios = form.querySelectorAll('input[type="radio"]');
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+
+    radios.forEach((radio) => {
+      if (radio.checked) {
+        selectedOptions.push(`Radio Button: ${radio.value}`);
+      }
+    });
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        selectedOptions.push(`Checkbox: ${checkbox.value}`);
+      }
+    });
+
+    selectedOptionsDiv.innerHTML = `You selected: <br>${selectedOptions.join('<br>')}`;
+  });
+</script>
+<!-- HTML (index.html) -->
+<nav>
+  <ul style="list-style-type: none;" align="center">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="news.html">News</a></li>
+    <li>
+      <a href="about.html">About</a>
+    </li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+  </body>
+</html>
